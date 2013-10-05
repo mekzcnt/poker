@@ -35,5 +35,17 @@ class Deck(object):
         for card in self.cards:
             res.append(str(card))
         return '\n'.join(res)
+
+    def pop_card(self):
+        """ remove cards from a deck"""
+        return self.cards.pop()
+
+    def add_card(self, card):
+        """ add a card from a deck"""
+        self.cards.append(card)
+
+    def shuffle(self):
+        """ shuffle a deck for any card"""
+        random.shuffle(self.cards)
     
     
