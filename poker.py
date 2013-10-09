@@ -1,51 +1,143 @@
-class Card(object):
-    """Represents a standard playing card."""
+def poker():
+    """
+   Main Function Pro gram won't work if this func is missing
+   """
+    hands = table()
+    allmax(hands)
 
-    suit_names = ['C', 'D', 'H', 'S']
-    rank_names = [None, 'A', '2', '3', '4', '5', '6', '7',
-                  '8', '9', '10', 'J', 'Q', 'K']
+def table():
+    all_hand = []
+    num_of_hand = input('How many hands do you want?>>> ')
+    for i in range(num_of_hand):
+        hand = raw_input('Hand'+str(i+1)+'>>> ')
+        hand = hand.split(' ')
+        all_hand.append(hand)
+    return all_hand
 
-    def __init__(self, suit=0, rank=2):
-        self.suit = suit
-        self.rank = rank
 
-    def __str__(self):
-        """Returns readable string"""
-        return '%s%s' % (Card.rank_names[self.rank],
-                             Card.suit_names[self.suit])
+def allmax(hands):
+    solve=[]
+    for hand in hands:
+        solve+=[tuple(hand)+hand_rank(hand)]
+    from operator import itemgetter
+    solve=sorted(solve,key=itemgetter(5,6),reverse=True)
+    winner=solve[0]
+    loser=solve[1:]
+    print 'winner is',sortcard(winner[:5]),' rank:',winnerrank(winner[5]),':Maxcard is',rechange(winner[6])
+    for i in loser :
+        if i[5]==winner[5] and rechange(winner[6])==rechange(i[6]):
+            word='winner is'
+        else:
+            word='loser is '
+        print word,sortcard(i[:5]),' rank:',winnerrank(i[5]),':Maxcard is',rechange(i[6])
+        
+   
+def hand_rank(hand):
+    """
+   (hand)-> int
+ 
+   Return the hand rank of a hand
+   """
+    ranks = ['--23456789TJQKA'.index(r) for r,s in hand]
+    ranks.sort(reverse=True)
+    if ranks == [14,5,4,3,2]:
+        ranks = [5,4,3,2,1]
+       
+    if straight_flush(hand):
+        return 8, max(ranks)
+    elif kind(4, ranks):
+        return 7, kind(4, ranks)
+    elif fullhouse(ranks):
+        return 6, kind(3, ranks)
+    elif flush(hand):
+        return 5, ranks
+    elif straight(hand):
+        return 4, max(ranks)
+    elif kind(3, ranks):
+        return 3, kind(3, ranks)
+    elif twopair(ranks):
+        return 2, twopair(ranks)[0], twopair(ranks)[1], kind(1, ranks)
+    elif kind(2, ranks):
+        return 1, kind(2, ranks), ranks
+    else:
+        return 0, ranks
+ 
+def straight_flush(hand):
+    """
+   (hand)-> Bool
+ 
+   Return True if hand is straight_flush,
+   False otherwise
+   """
+    return straight(hand) and flush(hand)
+ 
+def straight(hand):
+    """
+   (hand)-> Bool
+ 
+   Return True if hand is straight,
+   false otherwise
+   """
+ 
+    ranks = ['--23456789TJQKA'.index(r) for r,s in hand]
+    ranks.sort(reverse=True)
+    if ranks == [14,5,4,3,2]:
+        ranks = [5,4,3,2,1]
+   
+    return max(ranks)-min(ranks) == 4 and len(set(ranks)) == 5
+   
+ 
+def flush(hand):
+    """
+   (hand)-> Bool
+ 
+   Return True if hand is flush, False otherwise.
 
-    def __cmp__(self, other):
-        """Comparing cards"""
-        t1 = self.suit, self.rank
-        t2 = other.suit, other,rank
-        return cmp(t1, t2)
+   """
+   
+    suits = [s for r,s in hand]
+ 
+    return len(set(suits)) == 1
+ 
+def fullhouse(ranks):
+    """
+   (ranks)-> Bool
+ 
+   Return True if hand is fullhouse,
+   false otherwise
+   """
+   
+    return True if kind(3, ranks) and kind(2, ranks) else False
+ 
+def kind(n, ranks):
+    """
+   (ranks)-> int
+ 
+   Return rank if hand is n kind,
+   false otherwise
 
-class Deck(object):
-    """Represents a deck of card."""
+   """
+   
+    for r in ranks:
+        if ranks.count(r) == n:
+            return r
+    return 0
+ 
+def twopair(ranks):
+    """
+   (ranks)-> tuple
+ 
+   Return tuple of highpair and lowpair if hand is twopair,
+   false otherwise
+   """
+    ranks.sort(reverse=True)
+    high_pair = kind(2, ranks)
+    ranks.sort()
+    low_pair = kind(2, ranks)
+    ranks.sort(reverse=True)
+    if high_pair != low_pair:
+        return (high_pair, low_pair)
+    return ()
 
-    def __init__(self):
-        self.cards = []
-        for suit in range(4):
-            for rank in range(1, 14):
-                card = Card(suit, rank)
-                self.cards.append(card)
 
-    def __str__(self):
-        res = []
-        for card in self.cards:
-            res.append(str(card))
-        return '\n'.join(res)
-
-    def pop_card(self):
-        """ remove cards from a deck"""
-        return self.cards.pop()
-
-    def add_card(self, card):
-        """ add a card from a deck"""
-        self.cards.append(card)
-
-    def shuffle(self):
-        """ shuffle a deck for any card"""
-        random.shuffle(self.cards)
-    
-    
+poker()
