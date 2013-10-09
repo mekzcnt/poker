@@ -33,7 +33,7 @@ def allmax(hands):
     winner = solve[0]
     loser = solve[1:]
     print 'winner is',sortcard(winner[:5]),' rank:',winnerrank(winner[5]),
-        ':Maxcard is',rechange(winner[6])
+    ':Maxcard is',rechange(winner[6])
     for i in loser :
         if i[5] == winner[5] and rechange(winner[6]) == rechange(i[6]):
             word = 'winner is '
@@ -49,29 +49,29 @@ def hand_rank(hand):
    Return the hand rank of a hand
    
    """
-    ranks = ['--23456789TJQKA'.index(r) for r,s in hand]
-    ranks.sort(reverse=True)
-    if ranks == [14, 5, 4, 3, 2]:
-        ranks = [5, 4, 3, 2, 1]
+   ranks = ['--23456789TJQKA'.index(r) for r,s in hand]
+   ranks.sort(reverse=True)
+   if ranks == [14, 5, 4, 3, 2]:
+       ranks = [5, 4, 3, 2, 1]
        
-    if straight_flush(hand):
-        return 8, max(ranks)
-    elif kind(4, ranks):
-        return 7, kind(4, ranks)
-    elif fullhouse(ranks):
-        return 6, kind(3, ranks)
-    elif flush(hand):
-        return 5, ranks
-    elif straight(hand):
-        return 4, max(ranks)
-    elif kind(3, ranks):
-        return 3, kind(3, ranks)
-    elif twopair(ranks):
-        return 2, twopair(ranks)[0], twopair(ranks)[1], kind(1, ranks)
-    elif kind(2, ranks):
-        return 1, kind(2, ranks), ranks
-    else:
-        return 0, ranks
+   if straight_flush(hand):
+       return 8, max(ranks)
+   elif kind(4, ranks):
+       return 7, kind(4, ranks)
+   elif fullhouse(ranks):
+       return 6, kind(3, ranks)
+   elif flush(hand):
+       return 5, ranks
+   elif straight(hand):
+       return 4, max(ranks)
+   elif kind(3, ranks):
+       return 3, kind(3, ranks)
+   elif twopair(ranks):
+       return 2, twopair(ranks)[0], twopair(ranks)[1], kind(1, ranks)
+   elif kind(2, ranks):
+       return 1, kind(2, ranks), ranks
+   else:
+       return 0, ranks
  
 def straight_flush(hand):
     """
@@ -81,7 +81,9 @@ def straight_flush(hand):
    False otherwise
    
    """
-   return straight(hand) and flush(hand)
+   #return straight(hand) and flush(hand)
+    return straight(hand),flush(hand)
+    
  
 def straight(hand):
    """
@@ -91,12 +93,12 @@ def straight(hand):
    false otherwise
    
    """
-    ranks = ['--23456789TJQKA'.index(r) for r,s in hand]
-    ranks.sort(reverse=True)
-    if ranks == [14, 5, 4, 3, 2]:
-        ranks = [5, 4, 3, 2, 1]
+   ranks = ['--23456789TJQKA'.index(r) for r,s in hand]
+   ranks.sort(reverse=True)
+   if ranks == [14, 5, 4, 3, 2]:
+       ranks = [5, 4, 3, 2, 1]
    
-    return max(ranks)-min(ranks) == 4 and len(set(ranks)) == 5
+   return max(ranks)-min(ranks) == 4 and len(set(ranks)) == 5
    
  
 def flush(hand):
