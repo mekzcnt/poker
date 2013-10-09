@@ -1,6 +1,6 @@
 def poker():
     """
-   Main Function Pro gram won't work if this func is missing
+   Main Func --> Program won't work if this func is missing
    """
     hands = table()
     allmax(hands)
@@ -139,5 +139,22 @@ def twopair(ranks):
         return (high_pair, low_pair)
     return ()
 
+def sortcard(card):
+    rank='AKQJT98765432'
+    hand=sorted(card,key=compare)
+
+def winnerrank(n):
+    rank=['Highcard','One pair','Two pair','Three of kind','Straight','Flush','fullhouse','Four of kind','Straight Flush']
+    return rank[n]
+
+def compare(card):
+    rank='AKQJT98765432'
+    return rank.index(card[0])
+
+def rechange(n):
+    rechar={14:'A',13:'K',12:'Q',11:'J',10:'T'}
+    if n in rechar:
+        return rechar[n]
+    return n
 
 poker()
