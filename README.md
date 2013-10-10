@@ -10,7 +10,7 @@ Our project has 3 files which include:
 
 
 ##How to use poker.py
-You can run `poker.py` from Python IDLE for help your poker game. You can input a number of card and card names that you want. It will result the status which you get.
+You can run `poker.py` from Python IDLE for help your poker game. You can input card names that you want,then it will result the status which you get.
 
 ###Arrangement:
 - A is Ace, K is the King, Q is the Queen, J is Jack, T is 10
@@ -30,7 +30,7 @@ Then, it show the result...
 The Winner is ['TS', 'JS', ...] Rank:........
 ```
 
-I hope that it help you to decide on the game! ;)
+***I hope that it help you to decide on the game! ;)***
 
 ##Members
 * Mr.Chisanupong Srisaide (Student ID: 56070029)
