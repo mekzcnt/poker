@@ -13,9 +13,9 @@ Our project has 3 files which include:
 You can run `poker.py` from Python IDLE for help your poker game. You can input card names that you want,then it will result the status which you get.
 
 ###Arrangement:
-- A is Ace, K is the King, Q is the Queen, J is Jack, T is 10
-- Spades are S, Hearts are 2, Diamonds are D and Clubs are C
-- The card ranks in poker to sort to Descending is A K Q J T 9 8 7 6 5 4 3 2.
+- A is Ace, K is the King, Q is the Queen, J is Jack and T is 10
+- Spades are S, Hearts are H, Diamonds are D and Clubs are C
+- The card ranks in poker to sort to descending is A K Q J T 9 8 7 6 5 4 3 2.
 - **Ex:** If you want a card "Jack of Hearts", **you must type 'JH'**
 
 ###Start !!
