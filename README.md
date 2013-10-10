@@ -1,10 +1,16 @@
 #PSIT Project #2 (IT KMITL)
 
 ##Overview
-This project was created for Problem Solving of Information Technology (PSIT) subject. It was powered by Python---High-level programming. The name of project is "Poker" program.
+Our project was created for Problem Solving of Information Technology (PSIT) subject. It was powered by Python---High-level programming. The name of project is "Poker" program.
+
+Our project has 3 files which include
+* `poker.py` --- THE PROGRAM OF OUR PROJECT.
+* `poker_test.py` --- program for testing: it uses unitest module in python.
+* `README.md` --- describe about details of our project
+
 
 ##How to use poker.py
-You can run `poker.py` from Python IDLE for help your game. You can input a number of card and card names that you want. It will result the status which you get.
+You can run `poker.py` from Python IDLE for help your poker game. You can input a number of card and card names that you want. It will result the status which you get.
 
 You can run "Poker" function by ....
 ```python
