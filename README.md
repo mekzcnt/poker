@@ -10,7 +10,7 @@ Our project has 3 files which include:
 
 
 ##How to use poker.py
-You can run `poker.py` from Python IDLE for help your poker game. You can input card names that you want,then it will result the status which you get.
+You can run `poker.py` from Python IDLE for help your poker game. You can input card names that you want. Then, it will result the status which you get.
 
 ###Arrangement:
 - A is Ace, K is the King, Q is the Queen, J is Jack and T is 10
@@ -19,13 +19,13 @@ You can run `poker.py` from Python IDLE for help your poker game. You can input 
 - **Ex:** If you want a card "Jack of Hearts", **you must type 'JH'**
 
 ###Start !!
-You can run "Poker" function by ....
+You can run "Poker" function by open IDLE and type this....
 ```python
 >>> hand = ['TS', 'JS', ...]	### Create a variable to List type. In the list, MUST add your hand to string type.
 >>> poker([hand])		### Then enter for see the result
 ```
 
-Then, it show the result...
+Then, it shows the result...
 ```python
 The Winner is ['TS', 'JS', ...] Rank:........
 ```
