@@ -12,12 +12,6 @@ def poker(hands):
     from operator import itemgetter
     solve=sorted(solve,key=itemgetter(5,6),reverse=True)
     winner=solve[0]
-    loser=solve[1:]
-    #print 'The Winner is '+str(sortcard(winner[:5]))+' Rank:'+winnerrank(winner[5])
-    #for i in loser :
-        #if i[5]==winner[5] and rechange(winner[6])==rechange(i[6]):
-        #    word='Draw '
-        #return word,str(sortcard(i[:5])),' rank:',winnerrank(i[5])
     return 'The Winner is '+str([hand for hand in hands if maxhand  == hand_rank(hand)])+' Rank:'+winnerrank(winner[5])
    
    
