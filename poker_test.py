@@ -1,49 +1,125 @@
-q1 = 0
-q2 = 0
-q3 = 0
-q4 = 0
-on_x = 0
-on_y = 0
-i = 1
-n = raw_input()
-n = float(n)
-q_list = []
-while i <= n:
-    dot_raw = raw_input()
-    dot_xy = dot_raw.split(' ')
-    dot_xy_2 = tuple(dot_xy)
-    q_list.append(dot_xy_2)
-    i += 1
-j = 0
-length = len(q_list)
-'''
-q_list[j][0] >> x point
-q_list[j][1] >> y point
-'''
-while j <= length-1:
-    if float(q_list[j][1]) == float(0):
-        on_x += 1
-        j += 1
-    elif float(q_list[j][0]) == float(0):
-        on_y += 1
-        j += 1
-    elif float(q_list[j][0]) > float(0) and float(q_list[j][1]) > float(0):
-        q1 += 1
-        j += 1
-    elif float(q_list[j][0]) < float(0) and float(q_list[j][1]) > float(0):
-        q2 += 1
-        j += 1
-    elif float(q_list[j][0]) < float(0) and float(q_list[j][1]) < float(0):
-        q3 += 1
-        j += 1
-    elif float(q_list[j][0]) > float(0) and float(q_list[j][1]) < float(0):
-        q4 += 1
-        j += 1
-print q1
-print q2
-print q3
-print q4
-print on_x
-print on_y 
+import unittest
+import poker
+ 
+class TestPoker(unittest.TestCase):
+    '''Example unittest test methods for get_divisors.'''
+ 
+    def test_poker_example_SF(self):
+        '''Test get result of game
+        Test Straight Flush
+        sf = ['TS','JS','QS','KS','AS']
+        '''
+        sf = ['TS','JS','QS','KS','AS']
+        actual = poker.poker([sf])
+        expected = "The Winner is [['TS', 'JS', 'QS', 'KS', 'AS']] Rank:Straight Flush"
+        self.assertEqual(actual, expected)
     
+    def test_poker_example_ST(self):
+        '''Test get result of game
+        Test Straight
+        st = ['8S','7C','6H','5H','4S']
+        '''
+        st = ['8S','7C','6H','5H','4S']
+        actual = poker.poker([st])
+        expected = "The Winner is [['8S', '7C', '6H', '5H', '4S']] Rank:Straight"
+        self.assertEqual(actual, expected)
+ 
+    def test_poker_example_FL(self):
+        '''Test get result of game
+        Test Flush
+        fl = ['2S','4S','6S','KS','7S']
+        '''
+        fl = ['2S','4S','6S','KS','7S']
+        actual = poker.poker([fl])
+        expected = "The Winner is [['2S', '4S', '6S', 'KS', '7S']] Rank:Flush"
+        self.assertEqual(actual, expected)
+        
+    def test_poker_example_FK(self):
+        '''Test get result of game
+        Test Four of kind
+        fk = ['6S','6H','6D','6C','3D']
+        '''
+        fk = ['6S','6H','6D','6C','3D']
+        actual = poker.poker([fk])
+        expected = "The Winner is [['6S', '6H', '6D', '6C', '3D']] Rank:Four of kind"
+        self.assertEqual(actual, expected)
+            
+    def test_poker_example_TK(self):
+        '''Test get result of game
+        Test Three of kind
+        tk = ['7H','7S','7D','3C','2S']
+        '''
+        tk = ['7H','7S','7D','3C','2S']
+        actual = poker.poker([tk])
+        expected = "The Winner is [['7H', '7S', '7D', '3C', '2S']] Rank:Three of kind"
+        self.assertEqual(actual, expected)
+            
+    def test_poker_example_TP(self):
+        '''Test get result of game
+        Test Two pair
+        tp = ['KS','KH','2S','2C','6C']
+        '''
+        tp = ['KS','KH','2S','2C','6C']
+        actual = poker.poker([tp])
+        expected = "The Winner is [['KS', 'KH', '2S', '2C', '6C']] Rank:Two pair"
+        self.assertEqual(actual, expected)
+            
+    def test_poker_example_OP(self):
+        '''one Pair
+        Test Straight Flush
+        op = ['3S','3H','4S','AC','7C']
+        '''
+        op = ['3S','3H','4S','AC','7C']
+        actual = poker.poker([op])
+        expected = "The Winner is [['3S', '3H', '4S', 'AC', '7C']] Rank:One pair"
+        self.assertEqual(actual, expected)
+            
+    def test_poker_example_FH(self):
+        '''Test get result of game
+        Test Full House
+        fh = ['9S','9C','9D','AC','AS']
+        '''
+        fh = ['9S','9C','9D','AC','AS']
+        actual = poker.poker([fh])
+        expected = "The Winner is [['9S', '9C', '9D', 'AC', 'AS']] Rank:Fullhouse"
+        self.assertEqual(actual, expected)
+            
+    def test_poker_example_HC(self):
+        '''Test get result of game
+        Test High Card
+        hc = ['KH','JS','8S','7C','2D']
+        '''
+        hc = ['KH','JS','8S','7C','2D']
+        actual = poker.poker([hc])
+        expected = "The Winner is [['KH', 'JS', '8S', '7C', '2D']] Rank:Highcard"
+        self.assertEqual(actual, expected)
+            
+    def test_poker_example_Match1(self):
+        '''Test get result of game
+        Test Match Between SF ,FH, TK,TP and ST
+        '''
+        sf = ['TS','JS','QS','KS','AS']
+        fk = ['6S','6H','6D','6C','3D']
+        tk = ['7H','7S','7D','3C','2S']
+        tp = ['KS','KH','2S','2C','6C']
+        st = ['8S','7C','6H','5H','4S']
+        actual = poker.poker([sf,fk,tk,tp,st])
+        expected = "The Winner is [['TS', 'JS', 'QS', 'KS', 'AS']] Rank:Straight Flush"
+        self.assertEqual(actual, expected)
+            
+    def test_poker_example_Draw_Match(self):
+        '''Test get result of game
+        Test to draw between SF1,SF2
+
+        '''
+        sf1 = ['TH','JH','QH','KH','AH']
+        sf2 = ['TC','JC','QC','KC','AC']
+        tk = ['7H','7S','7D','3C','2S']
+        tp = ['KS','KH','2S','2C','6C']
+        st = ['8S','7C','6H','5H','4S']
+        actual = poker.poker([sf1,sf2,tk,tp,st])
+        expected = "The Winner is [['TH', 'JH', 'QH', 'KH', 'AH'], ['TC', 'JC', 'QC', 'KC', 'AC']] Rank:Straight Flush"
+        self.assertEqual(actual, expected)
     
+if __name__ == '__main__':
+    unittest.main(exit=False)
