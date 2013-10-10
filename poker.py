@@ -186,5 +186,3 @@ def rechange(n):
     if n in rechar:
         return rechar[n]
     return n
-
-poker()
