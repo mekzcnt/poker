@@ -6,8 +6,21 @@ def poker():
     allmax(hands)
 
 def table():
+    """
+    num_of_hand -> int
+    hand -> str
+    return card list of each player
+    input specific = 5 card with the space
+    between it
+    EX. 9H 10H JH QH KH
+    """
     all_hand = []
-    num_of_hand = input('How many hands do you want?>>> ')
+    num_of_hand = input('How many hands do you want?(2-10) >>> ')
+    while True:
+        if num_of_hand > 1 and num_of_hand <= 10:
+            break
+        else:
+            num_of_hand = input('Please enter the correct number >>> ')
     for i in range(num_of_hand):
         hand = raw_input('Hand'+str(i+1)+'>>> ')
         hand = hand.split(' ')
@@ -16,6 +29,10 @@ def table():
 
 
 def allmax(hands):
+    """
+    Show result of the game
+    if have more than 1 winner === they are draw
+    """
     solve=[]
     for hand in hands:
         solve+=[tuple(hand)+hand_rank(hand)]
@@ -23,10 +40,10 @@ def allmax(hands):
     solve=sorted(solve,key=itemgetter(5,6),reverse=True)
     winner=solve[0]
     loser=solve[1:]
-    print 'Winner is',sortcard(winner[:5]),' rank:',winnerrank(winner[5])
+    print 'The Winner is',sortcard(winner[:5]),' Rank:',winnerrank(winner[5])
     for i in loser :
         if i[5]==winner[5] and rechange(winner[6])==rechange(i[6]):
-            word='Winner is'
+            word='Draw '
         else:
             word='Loser is '
         print word,sortcard(i[:5]),' rank:',winnerrank(i[5])
@@ -140,19 +157,31 @@ def twopair(ranks):
     return ()
 
 def sortcard(card):
+    """
+    return hand that already sorted
+    """
     rank='AKQJT98765432'
     hand=sorted(card,key=compare)
     return hand
 
 def winnerrank(n):
+    """
+    Return rank of each hand
+    """
     rank=['Highcard','One pair','Two pair','Three of kind','Straight','Flush','Fullhouse','Four of kind','Straight Flush']
     return rank[n]
 
 def compare(card):
+    """
+    Compare rank of each hands
+    """
     rank='AKQJT98765432'
     return rank.index(card[0])
 
 def rechange(n):
+    """
+    Return if T J Q K A
+    """
     rechar={14:'A',13:'K',12:'Q',11:'J',10:'T'}
     if n in rechar:
         return rechar[n]
