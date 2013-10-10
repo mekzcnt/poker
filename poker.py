@@ -6,8 +6,20 @@ def poker(hands):
 
     """
     maxhand = hand_rank(max(hands,key=hand_rank))
-    return 'The Winner is '+str([hand for hand in hands if maxhand  == hand_rank(hand)])
-
+    solve=[]
+    for hand in hands:
+        solve+=[tuple(hand)+hand_rank(hand)]
+    from operator import itemgetter
+    solve=sorted(solve,key=itemgetter(5,6),reverse=True)
+    winner=solve[0]
+    loser=solve[1:]
+    #print 'The Winner is '+str(sortcard(winner[:5]))+' Rank:'+winnerrank(winner[5])
+    #for i in loser :
+        #if i[5]==winner[5] and rechange(winner[6])==rechange(i[6]):
+        #    word='Draw '
+        #return word,str(sortcard(i[:5])),' rank:',winnerrank(i[5])
+    return 'The Winner is '+str([hand for hand in hands if maxhand  == hand_rank(hand)])+' Rank:'+winnerrank(winner[5])
+   
    
 def hand_rank(hand):
     """
@@ -116,13 +128,6 @@ def twopair(ranks):
         return (high_pair, low_pair)
     return ()
 
-def sortcard(card):
-    """
-    return hand that already sorted
-    """
-    rank='AKQJT98765432'
-    hand=sorted(card,key=compare)
-    return hand
 
 def winnerrank(n):
     """
@@ -131,18 +136,4 @@ def winnerrank(n):
     rank=['Highcard','One pair','Two pair','Three of kind','Straight','Flush','Fullhouse','Four of kind','Straight Flush']
     return rank[n]
 
-def compare(card):
-    """
-    Compare rank of each hands
-    """
-    rank='AKQJT98765432'
-    return rank.index(card[0])
 
-def rechange(n):
-    """
-    Return if T J Q K A
-    """
-    rechar={14:'A',13:'K',12:'Q',11:'J',10:'T'}
-    if n in rechar:
-        return rechar[n]
-    return n
