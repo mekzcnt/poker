@@ -2,20 +2,12 @@ def poker(hands):
     """
     Show result of the game
     How to use >>>> poker([]) --> list only
+    if have more than 1 hand show == they are draw
 
     """
-    solve=[]
-    for hand in hands:
-        solve+=[tuple(hand)+hand_rank(hand)]
-    from operator import itemgetter
-    solve=sorted(solve,key=itemgetter(5,6),reverse=True)
-    winner=solve[0]
-    loser=solve[1:]
-    print 'The Winner is',sortcard(winner[:5]),' Rank:',winnerrank(winner[5])
-    for i in loser :
-        if i[5]==winner[5] and rechange(winner[6])==rechange(i[6]):
-            word='Draw '
-        
+    maxhand = hand_rank(max(hands,key=hand_rank))
+    return 'The Winner is '+str([hand for hand in hands if maxhand  == hand_rank(hand)])
+
    
 def hand_rank(hand):
     """
