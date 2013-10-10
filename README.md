@@ -19,7 +19,7 @@ You can run `poker.py` from Python IDLE for help your poker game. You can input 
 - **Ex:** If you want a card "Jack of Hearts", **you must type 'JH'**
 
 ###Start !!
-You can run "Poker" function by open IDLE and type this....
+You can run "Poker" function by open IDLE, open `poker.py` and type this....
 ```python
 >>> hand = ['TS', 'JS', ...]	### Create a variable to List type. In the list, MUST add your hand to string type.
 >>> poker([hand])		### Then enter for see the result
@@ -30,7 +30,7 @@ Then, it shows the result...
 The Winner is ['TS', 'JS', ...] Rank:........
 ```
 
-***I hope that it help you to decide on the game! ;)***
+***I hope that it helps you to decide on the game! ;)***
 
 ##Members
 * Mr.Chisanupong Srisaide (Student ID: 56070029)
