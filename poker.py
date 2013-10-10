@@ -1,7 +1,7 @@
 def allmax(hands):
     """
     Show result of the game
-    if have more than 1 winner === they are draw
+
     """
     solve=[]
     for hand in hands:
@@ -14,9 +14,6 @@ def allmax(hands):
     for i in loser :
         if i[5]==winner[5] and rechange(winner[6])==rechange(i[6]):
             word='Draw '
-        else:
-            word='Loser is '
-        print word,sortcard(i[:5]),' rank:',winnerrank(i[5])
         
    
 def hand_rank(hand):
