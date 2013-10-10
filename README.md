@@ -12,23 +12,30 @@ Our project has 3 files which include
 ##How to use poker.py
 You can run `poker.py` from Python IDLE for help your poker game. You can input a number of card and card names that you want. It will result the status which you get.
 
+###Arrangement:
+- A is Ace, K is the King, Q is the Queen, J is Jack, T is 10
+- Spades are S, Hearts are 2, Diamonds are D and Clubs are C
+- The card ranks in poker to sort to Descending is A K Q J T 9 8 7 6 5 4 3 2.
+- **Ex:** If you want a card "Jack of Hearts", **you must type 'JH'**
+
+###Start !!
 You can run "Poker" function by ....
 ```python
->>> hand = [.........]	### Create a variable to List type. In the list, you must add your hand.
+>>> hand = ['TS', 'JS', ...]	### Create a variable to List type. In the list, MUST add your hand to string type.
 >>> poker([hand])		### Then enter for see the result
 ```
 
 Then, it show the result...
 ```python
-The Winner is [............] Rank:........
+The Winner is ['TS', 'JS', ...] Rank:........
 ```
 
 I hope that it help you to decide on the game! ;)
 
 ##Members
-* Mr.Chisanupong Srisaide (560700xx)
-* Mr.Jenpasit Puprasert (56070022)
-* Mr.Kanit Proaresai (560700xx)
+* Mr.Chisanupong Srisaide (Student ID: 56070029)
+* Mr.Jenpasit Puprasert   (Student ID: 56070022)
+* Mr.Kanit Proaresai      (Student ID: 56070010)
 
 ##About Poker
 Poker is a family of card games that the most popular in the world, because It's not complex and using a critical thinking and making a decision. It's a game that using both Lucky, Probability, Psychology and Experience in order to get the profit in the game. In this article, Let's define the following acronyms. (Universal abbreviation of who study and play poker) A is Ace, K is the King, Q is the Queen, J is for Jack, T was 10 and the card ranks in poker to sort to Descending is A K Q J T 9 8 7 6 5 4 3 2.
