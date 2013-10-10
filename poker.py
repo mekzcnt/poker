@@ -1,33 +1,3 @@
-def poker():
-    """
-   Main Func --> Program won't work if this func is missing
-   """
-    hands = table()
-    allmax(hands)
-
-def table():
-    """
-    num_of_hand -> int
-    hand -> str
-    return card list of each player
-    input specific = 5 card with the space
-    between it
-    EX. 9H 10H JH QH KH
-    """
-    all_hand = []
-    num_of_hand = input('How many hands do you want?(2-10) >>> ')
-    while True:
-        if num_of_hand > 1 and num_of_hand <= 10:
-            break
-        else:
-            num_of_hand = input('Please enter the correct number >>> ')
-    for i in range(num_of_hand):
-        hand = raw_input('Hand'+str(i+1)+'>>> ')
-        hand = hand.split(' ')
-        all_hand.append(hand)
-    return all_hand
-
-
 def allmax(hands):
     """
     Show result of the game
