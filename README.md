@@ -13,16 +13,21 @@ Our project has 3 files which include:
 You can run `poker.py` from Python IDLE for help your poker game. You can input card names that you want. Then, it will result the status which you get.
 
 ###Arrangement:
-- A is Ace, K is the King, Q is the Queen, J is Jack and T is 10
-- Spades are S, Hearts are H, Diamonds are D and Clubs are C
+- A is Ace, K is the King, Q is the Queen, J is Jack and T is 10.
+- Spades are S, Hearts are H, Diamonds are D and Clubs are C.
 - The card ranks in poker to sort to descending is A K Q J T 9 8 7 6 5 4 3 2.
-- **Ex:** If you want a card "Jack of Hearts", **you must type 'JH'**
+- **Ex:** If you want a card "Jack of Hearts", **you MUST type 'JH'** into the list.
 
-###Start !!
-You can run "Poker" function by open IDLE, open `poker.py` and type this....
+###Let's Start !!
+You can run "Poker" function by open Python IDLE, open file `poker.py` and type this....
 ```python
->>> hand = ['TS', 'JS', ...]	### Create a variable to List type. In the list, MUST add your hand to string type.
->>> poker([hand])		### Then enter for see the result
+>>> hand1 = ['TS', 'JS', ...]	### Create a variable to List type!
+>>> hand2 = ['5H', '4S', ...]   ### In the list, you MUST add your hand to string type!
+>>> hand3 = ['7H', '7S', ...]   ### In the list, each strings CAN NOT be same!
+    .
+    .
+    .
+>>> poker([hand1, hand2, ...])	### Then enter for see the result
 ```
 
 Then, it shows the result...
@@ -30,7 +35,7 @@ Then, it shows the result...
 The Winner is ['TS', 'JS', ...] Rank:........
 ```
 
-***I hope that it helps you to decide on the game! ;)***
+***I hope that it helps you to decide on the game!*** **;)**
 
 ##Members
 * Mr.Chisanupong Srisaide (Student ID: 56070029)
