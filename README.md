@@ -14,8 +14,8 @@ You can run `poker.py` from Python IDLE for help your poker game. You can input 
 
 You can run "Poker" function by ....
 ```python
-poker([.........]) 
-#in the parentheses you can type list only
+hand = [.........] #create a variable to List type. In the list, you must add your hand.
+poker([hand]) #then enter for see the result
 ```
 
 Then, it show the result...
