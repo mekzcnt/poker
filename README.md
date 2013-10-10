@@ -3,10 +3,10 @@
 ##Overview
 Our project was created for Problem Solving of Information Technology (PSIT) subject. It was powered by Python---High-level programming. The name of project is "Poker" program.
 
-Our project has 3 files which include
+Our project has 3 files which include:
 * `poker.py` --- THE PROGRAM OF OUR PROJECT.
 * `poker_test.py` --- program for testing: it uses unitest module in python.
-* `README.md` --- describe about details of our project
+* `README.md` --- describe about details of our project.
 
 
 ##How to use poker.py
