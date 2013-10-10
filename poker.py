@@ -1,6 +1,7 @@
-def allmax(hands):
+def poker(hands):
     """
     Show result of the game
+    How to use >>>> poker([]) --> list only
 
     """
     solve=[]
